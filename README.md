@@ -10,11 +10,18 @@ Fire it up
 
 ### Backend
 
-Backend dependencies are managed via `pipenv`. Navigate to `blog-project/backend` and use `pipenv install` to create a virtual environment with the dependencies installed. Then use the convenience script `pipenv run serve` to start the backend (Django) server.
+Backend dependencies are managed via `pipenv`. Navigate to `blog-project/backend` and use `pipenv install` to create a virtual environment with the dependencies installed.
+
+The remote repository is missing the SQLite database Django creates when you initially start it, so there are some extra steps when starting from scratch. If this is the case, run the following convenience scripts:
+
+1. `pipenv run migrate`
+2. `pipenv run createsuperuser`
+
+In either case, you should then use the convenience script `pipenv run serve` to start the backend (Django) server.
 
 Visit
 
-- `http://127.0.0.1:8000/admin` for the Django admin
+- `http://127.0.0.1:8000/admin` for the Django admin (use your superuser name and password to log in)
 - `http://127.0.0.1:8000/graphql` for the GraphQL interface
 
 ### Frontend
